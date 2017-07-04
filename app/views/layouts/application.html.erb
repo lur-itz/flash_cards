@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FlashCards</title>
-    <%= csrf_meta_tags %>
+	<head>
+		<title>FlashCards</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag		'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+	<body>
+		<header>
+			<ul id="slide-out" class="side-nav fixed">
+				<li><%= link_to "Terms", terms_path %></li>
+				<li><a href="#">Languages</a></li>
+				<li><a href="#">Categories</a></li>
+			</ul>
+		</header>
+		<main>
+			<nav class="nav-extended">
+				<div class="container">
+					<div class="nav-wrapper">
+						<% if controller_name == "terms" %>
+							<%= render 'shared/navs/terms_controller_nav' %>
+						<% end %>
+					</div>
+				</div>
+			</nav>
 
-  <body>
-    <%= yield %>
-  </body>
+			<div class="container">
+				<% if !flash.empty? %>
+					<%= render 'shared/flash_messages' %>
+				<% end %>
+				<%= yield %>
+				<%= debug(params) if Rails.env.development? %>
+			</div>
+		</main>
+	</body>
 </html>

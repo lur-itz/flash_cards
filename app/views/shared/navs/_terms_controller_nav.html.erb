@@ -1,0 +1,9 @@
+<span class="nav-title"><%= "#{controller_name}".camelize %></span>
+<ul class="right hide-on-med-and-down">
+	<li><%= link_to "List", terms_path %></li>
+	<li><a href="#">Components</a></li>
+	<li><a href="#">JavaScript</a></li>
+</ul>
+<%= link_to new_term_path, class: "btn-floating btn-large halfway-fab" do %>
+<%= mi.add %>
+<% end %>

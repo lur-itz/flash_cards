@@ -1,0 +1,21 @@
+<% provide(:page_title, "New Term") %>
+<% provide(:button_text, "Add Term") %>
+<div class="section">
+	<div class="col s12">
+		<%= form_for(@term) do |f| %>
+			<div class="row">
+				<div class="input-field col s6">
+					<%= f.text_field :source %>
+					<%= f.label :source %>
+				</div>
+				<div class="input-field col s6">
+					<%= f.text_field :target %>
+					<%= f.label :target %>
+				</div>
+			</div>
+			<div class="row">
+				<%= f.submit yield(:button_text), class: 'btn' %>
+			</div>
+		<% end %>
+	</div>
+</div>

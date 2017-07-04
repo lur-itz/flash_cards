@@ -1,0 +1,29 @@
+<!--   SUCCESS    -->
+<% if flash[:success] %>
+	<div class="row">
+		<div class="col s12">
+			<div class="card green">
+				<div class="card-content white-text">
+					<% flash.each do |message_type, message| %>
+						<p><%= message %></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<!--   ALERT    -->
+<% if flash[:alert] %>
+	<div class="row">
+		<div class="col s12">
+			<div class="card red">
+				<div class="card-content white-text">
+					<% flash.each do |message_type, message| %>
+						<p><%= message %></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

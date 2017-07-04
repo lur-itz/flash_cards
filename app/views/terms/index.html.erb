@@ -1,0 +1,21 @@
+<% provide(:page_title, "Terms") %>
+<div class="section">
+	<table class="highlight">
+		<thead>
+			<tr>
+				<th>Source</th>
+				<th>Target</th>
+				<th>Created</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @terms.each do |term| %>
+			<tr>
+				<td><%= term.source %></td>
+				<td><%= term.target %></td>
+				<td><%= term.created_at %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
